@@ -1,7 +1,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version: 2.19.3
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPL
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
@@ -9,6 +9,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
+Patch0:		file-roller-2.19.3-lzma-support.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.5.0
 BuildRequires:	libglade2.0-devel
@@ -36,14 +37,16 @@ like tar and zip. The supported file types are :
           * bzip2 (.tar.bz2 , .tbz2)
           * compress (.tar.Z , .taz)
           * lzop (.tar.lzo , .tzo)
+          * lzma (.tar.lzma , .tlz)
     * Zip archives (.zip)
     * Jar archives (.jar , .ear , .war)
     * Lha archives (.lzh)
     * Rar archives (.rar)
-    * Single files compressed with gzip, bzip, bzip2, compress, lzop
+    * Single files compressed with gzip, bzip, bzip2, compress, lzop, lzma
 
 %prep
 %setup -q
+%patch0 -p1 -b .lzma_support
 touch *
 
 %build
