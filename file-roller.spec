@@ -57,15 +57,6 @@ touch *
 rm -rf $RPM_BUILD_ROOT %name.lang
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
 
-install -d -m 0755 %buildroot/%_menudir
-cat > %buildroot/%_menudir/%name <<EOF
-?package(%{name}):command="%{name}" \
-needs="x11" \
-section="System/Archiving/Compression" \
-title="File-Roller" \
-longtitle="An archive manager for GNOME" \
-icon="%name.png" startup_notify="true" xdg="true"
-EOF
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="X-MandrivaLinux-System-Archiving-Compression" \
@@ -120,4 +111,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
-%{_menudir}/%{name}
