@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.20.1
+Version: 2.20.2
 Release: %mkrel 1
 License:	GPL
 URL:		http://fileroller.sourceforge.net
