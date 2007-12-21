@@ -10,6 +10,7 @@ Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
 Patch0:		file-roller-2.19.3-lzma-support.patch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.5.0
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libgnomeui2-devel
