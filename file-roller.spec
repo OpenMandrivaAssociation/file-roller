@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.21.1
+Version: 2.21.2
 Release: %mkrel 1
 License:	GPL
 URL:		http://fileroller.sourceforge.net
@@ -72,7 +72,7 @@ echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buil
 done
 
 #remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-1.0}/*.{la,a}
+rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
 
 %post
 %update_scrollkeeper
@@ -98,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README 
 %{_sysconfdir}/gconf/schemas/*
 %{_bindir}/*
-%{_libdir}/nautilus/extensions-1.0/*.so
+%{_libdir}/nautilus/extensions-2.0/*.so
 %{_datadir}/applications/*
 %{_datadir}/file-roller
 %dir %{_datadir}/omf/file-roller
