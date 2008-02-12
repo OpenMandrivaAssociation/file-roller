@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.21.2
+Version: 2.21.91
 Release: %mkrel 1
 License:	GPL
 URL:		http://fileroller.sourceforge.net
@@ -20,6 +20,7 @@ BuildRequires:  perl-XML-Parser
 BuildRequires:  gnome-doc-utils >= 0.3.2
 BuildRequires:  libxslt-proc
 BuildRequires:  desktop-file-utils
+BuildRequires:  chrpath
 Requires(post):		scrollkeeper >= 0.3 desktop-file-utils
 Requires(postun):		scrollkeeper >= 0.3 desktop-file-utils
 Requires:	cdrecord-isotools
@@ -73,6 +74,10 @@ done
 
 #remove unpackaged files
 rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
+
+#gw rpmlint errors
+chmod 755 %buildroot%_libdir/file-roller/isoinfo.sh
+chrpath -d %buildroot{%_bindir/file-roller,%_libdir/nautilus/*/*.so}
 
 %post
 %update_scrollkeeper
