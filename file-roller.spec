@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.22.0
+Version: 2.22.2
 Release: %mkrel 1
 License:	GPL
 URL:		http://fileroller.sourceforge.net
@@ -13,7 +13,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.5.0
 BuildRequires:	libglade2.0-devel
 BuildRequires:	libgnomeui2-devel
-BuildRequires:  libnautilus-devel >= 2.9.0
+BuildRequires:  libnautilus-devel >= 2.22.2
 BuildRequires:  gnome-vfs2-devel >= 2.9.0
 BuildRequires:  scrollkeeper
 BuildRequires:  perl-XML-Parser
