@@ -79,21 +79,25 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
 chmod 755 %buildroot%_libdir/file-roller/isoinfo.sh
 chrpath -d %buildroot{%_bindir/file-roller,%_libdir/nautilus/*/*.so}
 
+%if %mdkversion < 200900
 %post
 %update_scrollkeeper
 %post_install_gconf_schemas file-roller
 %{update_menus}
 %update_desktop_database
 %update_icon_cache hicolor
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas file-roller
 
+%if %mdkversion < 200900
 %postun
 %clean_scrollkeeper
 %{clean_menus}
 %clean_desktop_database
 %clean_icon_cache hicolor
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
