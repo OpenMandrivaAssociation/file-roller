@@ -1,7 +1,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version: 2.23.4
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
@@ -9,6 +9,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
+Patch:		file-roller-2.23.4-desktopentry.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:	libglade2.0-devel
@@ -46,6 +47,7 @@ like tar and zip. The supported file types are :
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %configure2_5x --disable-scrollkeeper
