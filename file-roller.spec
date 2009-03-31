@@ -1,7 +1,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version: 2.26.0
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
@@ -68,7 +68,7 @@ cp %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 cp %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 
 %find_lang %{name}-2.0 --with-gnome --all-name
-for omf in %buildroot%_datadir/omf/*/*-??*.omf;do
+for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buildroot!!)" >> %name-2.0.lang
 done
 
