@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.29.2
+Version: 2.29.3
 Release: %mkrel 1
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
@@ -9,7 +9,6 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
-Patch: file-roller-2.29.1-configure-syntax.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:  libnautilus-devel >= 2.22.2
@@ -45,8 +44,6 @@ like tar and zip. The supported file types are :
 
 %prep
 %setup -q
-%patch -p1
-autoreconf -fi
 
 %build
 %configure2_5x --disable-scrollkeeper
