@@ -1,7 +1,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version: 2.29.91
-Release: %mkrel 1
+Release: %mkrel 2
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
@@ -9,6 +9,10 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
+# (fc) 2.29.91-2mdv fix command detection after package installation (git)
+Patch0:		0001-Recheck-commands-presence-after-package-installation.patch
+# (fc) 2.29.91-2mdv fix packagekit activation (git)
+Patch1:		0003-Allow-to-start-the-PackageKit-service-if-it-s-not-av.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:  libnautilus-devel >= 2.22.2
@@ -19,9 +23,11 @@ BuildRequires:  gnome-doc-utils >= 0.3.2
 BuildRequires:  libxslt-proc
 BuildRequires:  desktop-file-utils
 BuildRequires:  chrpath
+BuildRequires:  packagekit
 Requires(post):		scrollkeeper >= 0.3 desktop-file-utils
 Requires(postun):		scrollkeeper >= 0.3 desktop-file-utils
-Requires:	cdrecord-isotools
+Suggests:	cdrecord-isotools
+Requires: packagekit-gui
 
 %description
 File Roller is an archive manager for the GNOME environment.  This means that 
@@ -41,23 +47,20 @@ like tar and zip. The supported file types are :
     * Lha archives (.lzh)
     * Rar archives (.rar)
     * Single files compressed with gzip, bzip, bzip2, compress, lzop, lzma
+    * ISO images
 
 %prep
 %setup -q
+%patch0 -p1 -b .command-restart
+%patch1 -p1 -b .pk-activation
 
 %build
-%configure2_5x --disable-scrollkeeper
+%configure2_5x --disable-scrollkeeper --enable-packagekit
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT %name.lang
 GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --add-category="X-MandrivaLinux-System-Archiving-Compression" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
 
 # install icons
 mkdir -p $RPM_BUILD_ROOT{%{_liconsdir},%{_miconsdir},%{_iconsdir}}
