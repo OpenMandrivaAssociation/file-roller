@@ -1,7 +1,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.29.91
-Release: %mkrel 2
+Version: 2.29.92
+Release: %mkrel 1
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
@@ -9,10 +9,6 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Source1:	%name-48.png
 Source2:	%name-32.png
 Source3:	%name-16.png
-# (fc) 2.29.91-2mdv fix command detection after package installation (git)
-Patch0:		0001-Recheck-commands-presence-after-package-installation.patch
-# (fc) 2.29.91-2mdv fix packagekit activation (git)
-Patch1:		0003-Allow-to-start-the-PackageKit-service-if-it-s-not-av.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:  libnautilus-devel >= 2.22.2
@@ -51,8 +47,6 @@ like tar and zip. The supported file types are :
 
 %prep
 %setup -q
-%patch0 -p1 -b .command-restart
-%patch1 -p1 -b .pk-activation
 
 %build
 %configure2_5x --disable-scrollkeeper --enable-packagekit
