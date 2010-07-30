@@ -1,6 +1,6 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.30.2
+Version: 2.31.4
 Release: %mkrel 1
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
@@ -11,6 +11,7 @@ Source2:	%name-32.png
 Source3:	%name-16.png
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
+BuildRequires:  glib2-devel >= 2.25
 BuildRequires:  libnautilus-devel >= 2.22.2
 BuildRequires:  libGConf2-devel
 BuildRequires:  scrollkeeper
@@ -55,7 +56,7 @@ like tar and zip. The supported file types are :
 
 %install
 rm -rf $RPM_BUILD_ROOT %name.lang
-GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std
+%makeinstall_std
 
 # install icons
 mkdir -p $RPM_BUILD_ROOT{%{_liconsdir},%{_miconsdir},%{_iconsdir}}
@@ -75,25 +76,6 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
 chmod 755 %buildroot%_libdir/file-roller/isoinfo.sh
 chrpath -d %buildroot{%_bindir/file-roller,%_libdir/nautilus/*/*.so}
 
-%if %mdkversion < 200900
-%post
-%update_scrollkeeper
-%post_install_gconf_schemas file-roller
-%{update_menus}
-%update_desktop_database
-%update_icon_cache hicolor
-%endif
-
-%preun
-%preun_uninstall_gconf_schemas file-roller
-
-%if %mdkversion < 200900
-%postun
-%clean_scrollkeeper
-%{clean_menus}
-%clean_desktop_database
-%clean_icon_cache hicolor
-%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -101,11 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %{name}-2.0.lang
 %defattr(-,root,root)
 %doc AUTHORS NEWS README 
-%{_sysconfdir}/gconf/schemas/*
 %{_bindir}/*
 %{_libdir}/nautilus/extensions-2.0/*.so
 %{_datadir}/applications/*
 %{_datadir}/file-roller
+%_datadir/glib-2.0/schemas/org.gnome.file-roller.gschema.xml
 %dir %{_datadir}/omf/file-roller
 %{_datadir}/omf/file-roller/file-roller-C.omf
 %_libdir/%name
