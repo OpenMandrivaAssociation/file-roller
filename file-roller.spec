@@ -14,6 +14,7 @@ BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:  glib2-devel >= 2.25
 BuildRequires:  libnautilus-devel >= 2.22.2
 BuildRequires:  libGConf2-devel
+BuildRequires:  libsm-devel
 BuildRequires:  scrollkeeper
 BuildRequires:  intltool
 BuildRequires:  gnome-doc-utils >= 0.3.2
