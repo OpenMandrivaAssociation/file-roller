@@ -13,7 +13,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:  gtk+2-devel >= 2.13.0
 BuildRequires:  glib2-devel >= 2.25
 BuildRequires:  libnautilus-devel >= 2.22.2
-BuildRequires:  libGConf2-devel
+BuildRequires:  libGConf2-devel GConf2
 BuildRequires:  libsm-devel
 BuildRequires:  scrollkeeper
 BuildRequires:  intltool
