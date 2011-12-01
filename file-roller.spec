@@ -57,14 +57,14 @@ like tar and zip. The supported file types are :
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name.lang
+rm -rf %{buildroot} %name.lang
 %makeinstall_std
 
 # install icons
-mkdir -p $RPM_BUILD_ROOT{%{_liconsdir},%{_miconsdir},%{_iconsdir}}
-cp %{SOURCE1} $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
-cp %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-cp %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+mkdir -p %{buildroot}{%{_liconsdir},%{_miconsdir},%{_iconsdir}}
+cp %{SOURCE1} %{buildroot}%{_liconsdir}/%{name}.png
+cp %{SOURCE2} %{buildroot}%{_iconsdir}/%{name}.png
+cp %{SOURCE3} %{buildroot}%{_miconsdir}/%{name}.png
 
 %find_lang %{name}-2.0 --with-gnome --all-name
 for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do
@@ -72,14 +72,14 @@ echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buil
 done
 
 #remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
+rm -f %{buildroot}%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
 
 #gw rpmlint errors
 chmod 755 %buildroot%_libdir/file-roller/isoinfo.sh
 chrpath -d %buildroot{%_bindir/file-roller,%_libdir/nautilus/*/*.so}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %preun
 %preun_uninstall_gconf_schemas %name
