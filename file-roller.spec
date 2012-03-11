@@ -1,32 +1,25 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version: 2.32.2
-Release: %mkrel 3
+Version:	3.2.2
+Release:	1
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Source1:	%name-48.png
-Source2:	%name-32.png
-Source3:	%name-16.png
-Patch0:		file-roller-2.32.2-zh_CN-translation.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
-BuildRequires:  gtk+2-devel >= 2.13.0
-BuildRequires:  glib2-devel >= 2.25
-BuildRequires:  libnautilus-devel >= 2.22.2
-BuildRequires:  libGConf2-devel GConf2
-BuildRequires:  libsm-devel
-BuildRequires:  scrollkeeper
-BuildRequires:  intltool
-BuildRequires:  gnome-doc-utils >= 0.3.2
-BuildRequires:  libxslt-proc
-BuildRequires:  desktop-file-utils
-BuildRequires:  chrpath
-BuildRequires:  packagekit
-Requires(post):		scrollkeeper >= 0.3 desktop-file-utils
-Requires(postun):		scrollkeeper >= 0.3 desktop-file-utils
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+
+BuildRequires:	intltool
+BuildRequires:	magic-devel
+BuildRequires:	pkgconfig(glib-2.0)
+BuildRequires:	pkgconfig(gnome-doc-utils)
+BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(libnautilus-extension)
+BuildRequires:	pkgconfig(sm)
+
 Suggests:	cdrecord-isotools
 Requires: packagekit-gui
+Requires(pre):	GConf2
+# for the gsettings schema
+Requires:	nautilus
 
 %description
 File Roller is an archive manager for the GNOME environment.  This means that 
@@ -53,50 +46,29 @@ like tar and zip. The supported file types are :
 %apply_patches
 
 %build
-%configure2_5x --disable-scrollkeeper --enable-packagekit
+%configure2_5x \
+	--disable-static \
+	--disable-scrollkeeper \
+	--enable-packagekit \
+	--enable-nautilus-actions
+
 %make
 
 %install
-rm -rf %{buildroot} %name.lang
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
+%find_lang %{name} --with-gnome --all-name
 
-# install icons
-mkdir -p %{buildroot}{%{_liconsdir},%{_miconsdir},%{_iconsdir}}
-cp %{SOURCE1} %{buildroot}%{_liconsdir}/%{name}.png
-cp %{SOURCE2} %{buildroot}%{_iconsdir}/%{name}.png
-cp %{SOURCE3} %{buildroot}%{_miconsdir}/%{name}.png
-
-%find_lang %{name}-2.0 --with-gnome --all-name
-for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do
-echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed s!%buildroot!!)" >> %name-2.0.lang
-done
-
-#remove unpackaged files
-rm -f %{buildroot}%{_libdir}/{bonobo,nautilus/extensions-2.0}/*.{la,a}
-
-#gw rpmlint errors
-chmod 755 %buildroot%_libdir/file-roller/isoinfo.sh
-chrpath -d %buildroot{%_bindir/file-roller,%_libdir/nautilus/*/*.so}
-
-%clean
-rm -rf %{buildroot}
-
-%preun
-%preun_uninstall_gconf_schemas %name
-
-%files -f %{name}-2.0.lang
-%defattr(-,root,root)
+%files -f %{name}.lang
 %doc AUTHORS NEWS README 
-%_sysconfdir/gconf/schemas/%name.schemas
 %{_bindir}/*
-%{_libdir}/nautilus/extensions-2.0/*.so
+%{_libdir}/nautilus/extensions-3.0/*.so
+%{_libexecdir}/%{name}
+%{_libexecdir}/%{name}-server
 %{_datadir}/applications/*
+%{_datadir}/dbus-1/services/org.gnome.FileRoller.service
 %{_datadir}/file-roller
-#%_datadir/glib-2.0/schemas/org.gnome.file-roller.gschema.xml
-%dir %{_datadir}/omf/file-roller
-%{_datadir}/omf/file-roller/file-roller-C.omf
-%_libdir/%name
-%_datadir/icons/hicolor/*/*/*.*
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
+%{_datadir}/GConf/gsettings/file-roller.convert
+%{_datadir}/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
+%{_datadir}/icons/hicolor/*/*/*.*
+
