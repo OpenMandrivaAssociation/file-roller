@@ -1,13 +1,13 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.4.2
+Version:	3.6.3
 Release:	1
 License:	GPLv2+
 URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
 
-BuildRequires:	intltool
+BuildRequires:	intltool itstool
 BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
@@ -16,7 +16,7 @@ BuildRequires:	pkgconfig(libnautilus-extension)
 BuildRequires:	pkgconfig(sm)
 
 Suggests:	cdrecord-isotools
-Requires: packagekit-gui
+Requires:	packagekit-gui
 Requires(pre):	GConf2
 # for the gsettings schema
 Requires:	nautilus
@@ -64,11 +64,9 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_bindir}/*
 %{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
-%{_libexecdir}/%{name}-server
 %{_datadir}/applications/*
 %{_datadir}/dbus-1/services/org.gnome.FileRoller.service
 %{_datadir}/file-roller
 %{_datadir}/GConf/gsettings/file-roller.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
 %{_datadir}/icons/hicolor/*/*/*.*
-
