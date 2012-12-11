@@ -1,13 +1,16 @@
+%define url_ver %(echo %{version} | cut -d. -f1,2)
+
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version:	3.6.3
 Release:	1
 License:	GPLv2+
-URL:		http://fileroller.sourceforge.net
 Group:		Archiving/Compression
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/3.6/%{name}-%{version}.tar.xz
+URL:		http://fileroller.sourceforge.net
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
 
-BuildRequires:	intltool itstool
+BuildRequires:	intltool
+BuildRequires:	itstool
 BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
@@ -70,3 +73,4 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_datadir}/GConf/gsettings/file-roller.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
 %{_datadir}/icons/hicolor/*/*/*.*
+
