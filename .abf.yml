@@ -1,4 +1,5 @@
----
-sources:
+removed_sources:
   file-roller-3.6.2.tar.xz: 0e3b6bc9307f377f48f03edd60d0d849c6fde1a1
   file-roller-3.6.3.tar.xz: 70afc029711995ab20af8ead72de55e30ee3e0b8
+sources:
+  file-roller-3.7.2.tar.xz: 34497b7a468aefd0fc8a82e3d2b609f11a0ecde5
