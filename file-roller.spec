@@ -6,8 +6,8 @@ Version:	3.7.2
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
-URL:		http://fileroller.sourceforge.net
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		http://fileroller.sourceforge.net
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	itstool
@@ -59,7 +59,6 @@ like tar and zip. The supported file types are :
 
 %install
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
@@ -72,5 +71,5 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_datadir}/file-roller
 %{_datadir}/GConf/gsettings/file-roller.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
-%{_datadir}/icons/hicolor/*/*/*.*
+%{_iconsdir}/hicolor/*/*/*.*
 
