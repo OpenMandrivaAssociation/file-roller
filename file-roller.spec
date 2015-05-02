@@ -2,7 +2,7 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.7.2
+Version:	 3.16.1
 Release:	8
 License:	GPLv2+
 Group:		Archiving/Compression
@@ -25,10 +25,10 @@ Requires(pre):	GConf2
 Requires:	nautilus
 
 %description
-File Roller is an archive manager for the GNOME environment.  This means that 
-you can : create and modify archives; view the content of an archive; view a 
+File Roller is an archive manager for the GNOME environment.  This means that
+you can : create and modify archives; view the content of an archive; view a
 file contained in the archive; extract files from the archive.
-File Roller is only a front-end (a graphical interface) to archiving programs 
+File Roller is only a front-end (a graphical interface) to archiving programs
 like tar and zip. The supported file types are :
     * Tar archives uncompressed (.tar) or compressed with
           * gzip (.tar.gz , .tgz)
@@ -62,7 +62,7 @@ like tar and zip. The supported file types are :
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS README 
+%doc AUTHORS NEWS README
 %{_bindir}/*
 %{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
