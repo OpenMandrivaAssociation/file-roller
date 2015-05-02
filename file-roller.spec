@@ -49,9 +49,7 @@ like tar and zip. The supported file types are :
 %apply_patches
 
 %build
-%configure2_5x \
-	--disable-static \
-	--disable-scrollkeeper \
+%configure \
 	--enable-packagekit \
 	--enable-nautilus-actions
 
@@ -67,6 +65,8 @@ like tar and zip. The supported file types are :
 %{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*
+%{_datadir}/appdata/org.gnome.FileRoller.appdata.xml
+%{_datadir}/dbus-1/services/org.gnome.FileRoller.ArchiveManager1.service
 %{_datadir}/dbus-1/services/org.gnome.FileRoller.service
 %{_datadir}/file-roller
 %{_datadir}/GConf/gsettings/file-roller.convert
