@@ -20,7 +20,6 @@ BuildRequires:	pkgconfig(sm)
 
 Suggests:	cdrecord-isotools
 Requires:	packagekit-gui
-Requires(pre):	GConf2
 # for the gsettings schema
 Requires:	nautilus
 
