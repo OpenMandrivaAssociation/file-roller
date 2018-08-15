@@ -3,8 +3,8 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.16.4
-Release:	2
+Version:	3.28.1
+Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		http://fileroller.sourceforge.net
@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libnautilus-extension)
 BuildRequires:	pkgconfig(sm)
+BuildRequires:	meson ninja
 
 Suggests:	cdrecord-isotools
 Requires:	packagekit-gui
@@ -49,14 +50,11 @@ like tar and zip. The supported file types are :
 %apply_patches
 
 %build
-%configure \
-	--enable-packagekit \
-	--enable-nautilus-actions
-
-%make
+%meson
+%ninja_build -C build
 
 %install
-%makeinstall_std
+%ninja_install -C build
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
@@ -65,11 +63,9 @@ like tar and zip. The supported file types are :
 %{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*
-%{_datadir}/appdata/org.gnome.FileRoller.appdata.xml
+%{_datadir}/metainfo/org.gnome.FileRoller.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.FileRoller.ArchiveManager1.service
 %{_datadir}/dbus-1/services/org.gnome.FileRoller.service
 %{_datadir}/file-roller
-%{_datadir}/GConf/gsettings/file-roller.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.FileRoller.gschema.xml
 %{_iconsdir}/hicolor/*/*/*.*
-
