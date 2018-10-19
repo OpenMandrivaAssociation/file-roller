@@ -3,7 +3,7 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.28.1
+Version:	3.30.1
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
@@ -16,7 +16,11 @@ BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtk+-3.0)
+BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(libnautilus-extension)
+BuildRequires:	pkgconfig(libnotify)
+BuildRequires:	pkgconfig(json-glib-1.0)
+BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	meson ninja
 
