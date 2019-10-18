@@ -24,7 +24,7 @@ BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	meson ninja
 
-Suggests:	cdrecord-isotools
+Recommends:	cdrecord-isotools
 Requires:	packagekit-gui
 # for the gsettings schema
 Requires:	nautilus
