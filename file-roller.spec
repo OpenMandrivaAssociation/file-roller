@@ -3,7 +3,7 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.32.4
+Version:	3.36.0
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
@@ -62,7 +62,7 @@ like tar and zip. The supported file types are :
 %find_lang %{name} --with-gnome --all-name
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS README.md
 %{_bindir}/*
 %{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
