@@ -3,7 +3,7 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.36.1
+Version:	3.36.2
 Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
