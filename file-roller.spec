@@ -4,7 +4,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version:	3.38.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		http://fileroller.sourceforge.net
@@ -12,7 +12,6 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-%
 
 BuildRequires:	intltool
 BuildRequires:	itstool
-BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtk+-3.0)
