@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(libnautilus-extension)
 BuildRequires:	pkgconfig(libnotify)
+BuildRequires: pkgconfig(libhandy-1)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(sm)
