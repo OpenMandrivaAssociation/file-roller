@@ -3,8 +3,8 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	3.42.0
-Release:	3
+Version:	43.0
+Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		http://fileroller.sourceforge.net
@@ -16,9 +16,10 @@ BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libarchive)
-BuildRequires:	pkgconfig(libnautilus-extension)
+BuildRequires:	pkgconfig(libnautilus-extension-4)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires: pkgconfig(libhandy-1)
+BuildRequires: pkgconfig(libportal)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(sm)
@@ -64,7 +65,7 @@ like tar and zip. The supported file types are :
 %files -f %{name}.lang
 %doc AUTHORS NEWS README.md
 %{_bindir}/*
-%{_libdir}/nautilus/extensions-3.0/*.so
+%{_libdir}/nautilus/extensions-4/libnautilus-fileroller.so
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*
 %{_datadir}/metainfo/org.gnome.FileRoller.appdata.xml
