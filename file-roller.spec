@@ -65,7 +65,7 @@ like tar and zip. The supported file types are :
 %files -f %{name}.lang
 %doc AUTHORS NEWS README.md
 %{_bindir}/*
-%{_libdir}/nautilus/extensions-3.0/*.so
+#{_libdir}/nautilus/extensions-3.0/*.so
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*
 %{_datadir}/metainfo/org.gnome.FileRoller.appdata.xml
