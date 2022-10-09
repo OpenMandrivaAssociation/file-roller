@@ -19,6 +19,7 @@ BuildRequires:	pkgconfig(libarchive)
 #BuildRequires:	pkgconfig(libnautilus-extension)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires: pkgconfig(libhandy-1)
+BuildRequires: pkgconfig(libportal)
 BuildRequires:	pkgconfig(json-glib-1.0)
 BuildRequires:	magic-devel
 BuildRequires:	pkgconfig(sm)
