@@ -4,11 +4,11 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version:	43.0
-Release:	4
+Release:	5
 License:	GPLv2+
 Group:		Archiving/Compression
-Url:		http://fileroller.sourceforge.net
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://fileroller.sourceforge.net
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
 BuildRequires:	itstool
