@@ -3,8 +3,8 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	43.0
-Release:	5
+Version:	43.1
+Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		https://fileroller.sourceforge.net
