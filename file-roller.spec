@@ -15,6 +15,7 @@ BuildRequires:	itstool
 BuildRequires:	pkgconfig(glib-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
 BuildRequires:	pkgconfig(gtk4)
+BuildRequires: pkgconfig(libadwaita-1)
 BuildRequires:	pkgconfig(libarchive)
 BuildRequires:	pkgconfig(libnautilus-extension-4)
 BuildRequires:	pkgconfig(libnotify)
