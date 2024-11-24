@@ -3,8 +3,8 @@
 
 Summary:	An archive manager for GNOME
 Name:		file-roller
-Version:	44.3
-Release:	3
+Version:	44.4
+Release:	1
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		https://fileroller.sourceforge.net
@@ -31,6 +31,10 @@ Requires:	packagekit-gui
 # for the gsettings schema
 Requires:	nautilus
 
+# as of file-roller 44.4 bzip3 is supported.
+# Lets make it optional dep.
+Recommends: bzip3
+
 %description
 File Roller is an archive manager for the GNOME environment.  This means that
 you can : create and modify archives; view the content of an archive; view a
@@ -41,6 +45,7 @@ like tar and zip. The supported file types are :
           * gzip (.tar.gz , .tgz)
           * bzip (.tar.bz , .tbz)
           * bzip2 (.tar.bz2 , .tbz2)
+          * bzip3 (.tar.bz3 , .tbz3)
           * compress (.tar.Z , .taz)
           * lzop (.tar.lzo , .tzo)
           * lzma (.tar.lzma , .tlz)
