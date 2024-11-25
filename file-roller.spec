@@ -4,7 +4,7 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version:	44.4
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		https://fileroller.sourceforge.net
@@ -27,13 +27,11 @@ BuildRequires:	pkgconfig(sm)
 BuildRequires:	meson ninja
 
 Recommends:	cdrecord-isotools
-Requires:	packagekit-gui
+Requires: packagekit-gui
 # for the gsettings schema
-Requires:	nautilus
-
+Requires: nautilus
 # as of file-roller 44.4 bzip3 is supported.
-# Lets make it optional dep.
-Recommends: bzip3
+Requires: bzip3
 
 %description
 File Roller is an archive manager for the GNOME environment.  This means that
