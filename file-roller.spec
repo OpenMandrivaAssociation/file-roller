@@ -4,27 +4,27 @@
 Summary:	An archive manager for GNOME
 Name:		file-roller
 Version:	44.5
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Archiving/Compression
 Url:		https://fileroller.sourceforge.net
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-%{version}.tar.xz
 
-BuildRequires:	intltool
-BuildRequires:	itstool
-BuildRequires:	pkgconfig(glib-2.0)
-BuildRequires:	pkgconfig(gnome-doc-utils)
-BuildRequires:	pkgconfig(gtk4)
+BuildRequires: intltool
+BuildRequires: itstool
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gnome-doc-utils)
+BuildRequires: pkgconfig(gtk4)
 BuildRequires: pkgconfig(libadwaita-1)
-BuildRequires:	pkgconfig(libarchive)
-BuildRequires:	pkgconfig(libnautilus-extension-4)
-BuildRequires:	pkgconfig(libnotify)
+BuildRequires: pkgconfig(libarchive)
+BuildRequires: pkgconfig(libnautilus-extension-4)
+BuildRequires: pkgconfig(libnotify)
 BuildRequires: pkgconfig(libhandy-1)
 BuildRequires: pkgconfig(libportal)
-BuildRequires:	pkgconfig(json-glib-1.0)
-BuildRequires:	magic-devel
-BuildRequires:	pkgconfig(sm)
-BuildRequires:	meson ninja
+BuildRequires: pkgconfig(json-glib-1.0)
+BuildRequires: magic-devel
+BuildRequires: pkgconfig(sm)
+BuildRequires: meson ninja
 
 Recommends:	cdrecord-isotools
 Requires: packagekit-gui
