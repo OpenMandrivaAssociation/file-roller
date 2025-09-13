@@ -12,6 +12,7 @@ Source0:	https://ftp.gnome.org/pub/GNOME/sources/file-roller/%{url_ver}/%{name}-
 
 BuildRequires: intltool
 BuildRequires: itstool
+BuildRequires: desktop-file-utils
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gnome-doc-utils)
 BuildRequires: pkgconfig(gtk4)
