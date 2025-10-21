@@ -73,7 +73,7 @@ like tar and zip. The supported file types are :
 %{_libdir}/nautilus/extensions-4/libnautilus-fileroller.so
 %{_libexecdir}/%{name}
 %{_datadir}/applications/*
-%{_datadir}/metainfo/org.gnome.FileRoller.appdata.xml
+%{_datadir}/metainfo/org.gnome.FileRoller.metainfo.xml
 %{_datadir}/dbus-1/services/org.gnome.ArchiveManager1.service
 %{_datadir}/dbus-1/services/org.gnome.FileRoller.service
 %{_datadir}/file-roller
